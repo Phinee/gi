@@ -1,11 +1,18 @@
 class MicropostsController < ApplicationController
 
   before_action :set_micropost, only: [:show, :edit, :update, :destroy]
+  # before_action :authenticate_micropost!
+# before_action :authenticate_micropost!, only: [:create, update, :destroy]
+# before_action :authenticate_user!, except: [:index, :show]
+
+
+
 
   # GET /microposts
   # GET /microposts.json
   def index
     @microposts = Micropost.all
+    p current_user
   end
 
   # GET /microposts/1
@@ -41,6 +48,7 @@ class MicropostsController < ApplicationController
   # PATCH/PUT /microposts/1
   # PATCH/PUT /microposts/1.json
   def update
+    p @micropost.user_id =  current_user
     respond_to do |format|
       if @micropost.update(micropost_params)
         format.html { redirect_to @micropost, notice: 'Micropost was successfully updated.' }
@@ -70,6 +78,6 @@ class MicropostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def micropost_params
-      params.require(:micropost).permit(:content, :user_id)
+      params.require(:micropost).permit(:content, :user_id , :image)
     end
 end

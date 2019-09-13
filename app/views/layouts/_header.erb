@@ -1,0 +1,48 @@
+<header style="border-bottom: 4px solid; background-color: yellow;">
+    <div class="shadow p-3 mb-5 bg-white rounded>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <h3 class="navbar" style="color: blue;"><%= link_to 'Sample App',   static_pages_acceuil_path, class:"text-primary"%></h3>
+            </div>
+        </div>
+        <div class="row">
+        	<div class="col-7">
+            <p>
+                <%= link_to 'fr', static_pages_acceuil_path(locale: "fr") ,class:"text-success"%>
+                <%= link_to 'en', static_pages_acceuil_path(locale: "en"), class:"text-danger"%>
+            </p>
+            </div>
+            
+                <ul class="nav d-flex justify-content-end">
+                    <li class="px-3 ">
+                        <%= link_to 'Microposts',   microposts_path, class:"text-light bg-dark" %>
+                    </li>
+                    <li class="px-3 ">
+                        <%= link_to 'Articles', articles_path, class:"text-success"  %>
+                    </li>
+                    <% if user_signed_in? %>
+                    <li class="px-3 nav-item">
+                        <%= link_to 'Edit account', edit_user_registration_path, class:"text-success"   %>
+                    </li>
+                    <li class="px-3 nav-item">
+                        <%= link_to 'Sign out', destroy_user_session_path,  :method=>'delete', class:"text-success" %>
+                    </li>
+                    <% else %>
+                    <li class="px-3 nav-item">
+                        <%= link_to I18n.t("ouv"), new_user_session_path, class:"text-success" %>
+                    </li>
+                    <li class="px-3 nav-item">
+                        <%= link_to I18n.t("enr"), new_user_registration_path, class:"text-success" %>
+                    </li>
+                    <% end %>
+                    <li class="px-3 nav-item">
+                        <%= link_to I18n.t("ai"), static_pages_aide_path, class:"text-success"  %>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</header>

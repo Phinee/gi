@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-    <% @articles.each do |user| %>  
+    <% @articles.each do |article| %>  
       <tr>
         <td><%= article.famille %></td>
         <td><%= article.produit %></td>
@@ -29,3 +29,5 @@
 <br>
 
 <%= link_to 'New Arcticle', new_article_path %>
+
+<p ><%= link_to 'Retour', static_pages_acceuil_path%></p> 

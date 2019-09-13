@@ -1,4 +1,4 @@
-class ArticleController < ApplicationController
+class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -20,7 +20,7 @@ class ArticleController < ApplicationController
 
 
   def create
-    @article = Article.new(user_params)
+    @article = Article.new(article_params)
 
     respond_to do |format|
       if @article.save

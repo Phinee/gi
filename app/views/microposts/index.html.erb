@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
-
+<div class="d-flex justify-content-center">
 <h1>Microposts</h1>
-
+</div>
+<div class="d-flex justify-content-center">
 <table>
   <thead>
     <tr>
@@ -23,7 +24,14 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
+</div>
+<div class="row d-flex justify-content-center">
+<div  class="col-6">
 <%= link_to 'New Micropost', new_micropost_path %>
+</div>
+<div  class="col-2">
+
+<%= link_to 'Retour', static_pages_acceuil_path%>
+</div>
+</div>
+
